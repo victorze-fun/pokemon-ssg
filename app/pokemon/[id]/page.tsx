@@ -1,6 +1,8 @@
-import { getPokemon } from '@/app/lib/getPokemon';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+
+import { getPokemon } from '@/app/lib/getPokemon';
+import { ButtonToggleFavorite } from '@/app/components/ButtonToggleFavorite';
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const pokemon = await getPokemon(Number(params.id));
@@ -29,9 +31,7 @@ const PokemonPage = async ({ params }: { params: { id: string } }) => {
       <div className="col-span-2 rounded-xl bg-zinc-800 p-4">
         <div className="flex justify-between">
           <h1 className="text-5xl capitalize">{pokemon.name}</h1>
-          <button className="rounded-xl border-2 border-indigo-500 bg-black px-6 py-2 hover:bg-slate-900">
-            Guardar en favoritos
-          </button>
+          <ButtonToggleFavorite pokemonId={params.id}></ButtonToggleFavorite>
         </div>
         <h2 className="mt-6 text-2xl">Sprites:</h2>
         <div className="flex justify-around">

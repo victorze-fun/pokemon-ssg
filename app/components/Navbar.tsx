@@ -17,7 +17,7 @@ export const Navbar = () => {
             <span className="text-xl">okemon</span>
           </div>
         </Link>
-        <Link href={'/favorities'}>
+        <Link href={'/favorites'}>
           <div>Favoritos</div>
         </Link>
       </nav>
